@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class HoneyTimer : MonoBehaviour
 {
+    //VARS
     public float timeRemaining = 10;
     public bool timerRunning = false;
 
+    //REFS
     public TextMesh countdownText;
     public GameObject emptyJar;
     public GameObject fullJar;
