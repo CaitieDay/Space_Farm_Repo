@@ -4,22 +4,6 @@ using UnityEngine;
 
 public class HoneyCollect : MonoBehaviour
 {
-    //VARS
-
-
-    //REFS
-    public GameObject fullJar;
-    public GameObject player;
-
-
-    public void OnTriggerEnter(Collider other)
-    {
-        // display to the player "press 'e' to pick up"
-
-    }
-
-
-
     // Start is called before the first frame update
     void Start()
     {
