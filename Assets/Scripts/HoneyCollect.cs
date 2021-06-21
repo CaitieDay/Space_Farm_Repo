@@ -1,36 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HoneyCollect : MonoBehaviour
 {
     //VARS
     private bool touchingJar = false;
-
+    public GameObject FullJar;
+    public Text Text;
 
     // Update is called once per frame
     void Update()
     {
         // if e is pressed
-        if ((Input.GetKeyDown(KeyCode.E)) && (OnTriggerEnter))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-
-        }
-
-        void OnTriggerEnter (Collider FullJar)
-        {
-            if (FullJar.tag == Jars)
+            //check for players collison with the game object tagged Jars
+            if (touchingJar)
             {
-                touchingJar = true; 
+
             }
         }
 
-        void OnTriggerExit (Collider FullJar)
+    }
+
+    void OnTriggerEnter (Collider Jars)
+    {
+        if (Jars.tag == "FullJar")
         {
-            if (FullJar.tag == Jars)
-            {
-                touchingJar = false;
-            }
+            touchingJar = true; 
         }
     }
+
+    void OnTriggerExit (Collider Jars)
+    {
+        if (Jars.tag == "FullJar")
+        {
+            touchingJar = false;
+        }
+    }
+   
 }
