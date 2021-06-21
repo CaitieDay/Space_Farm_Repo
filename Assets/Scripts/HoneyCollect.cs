@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class HoneyCollect : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //VARS
+    private bool touchingJar = false;
+
 
     // Update is called once per frame
     void Update()
     {
-        
+        // if e is pressed
+        if ((Input.GetKeyDown(KeyCode.E)) && (OnTriggerEnter))
+        {
+
+        }
+
+        void OnTriggerEnter (Collider FullJar)
+        {
+            if (FullJar.tag == Jars)
+            {
+                touchingJar = true; 
+            }
+        }
+
+        void OnTriggerExit (Collider FullJar)
+        {
+            if (FullJar.tag == Jars)
+            {
+                touchingJar = false;
+            }
+        }
     }
 }

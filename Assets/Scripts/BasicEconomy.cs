@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BasicEconomy : MonoBehaviour
 {
+    //VARS
+    int fullHoneyJars;
+    int gold;
+
+    
     // Start is called before the first frame update
     void Start()
     {
