@@ -3,42 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class HoneyCollect : MonoBehaviour
 {
     //VARS
-    private bool touchingJar = false;
-    public GameObject FullJar;
-    public Text Text;
+    public Camera newCamera;
+    public float rayRange = 5f;
+    public KeyCode interact;
+
+    public Text dataTextJars;
+    public int dataAmountJars = 0; 
+    
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        dataTextJars.text = dataAmountJars.ToString();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        // if e is pressed
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            //check for players collison with the game object tagged Jars
-            if (touchingJar)
-            {
+        Ray rayCast = newCamera.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+        RaycastHit rayHit;
 
+        if (Physics.Raycast(rayCast, out rayHit, rayRange))
+        {
+            if (rayHit.collider.tag == "Jars")
+            {
+                if (Input.GetKeyDown(interact))
+                {
+                    Debug.Log("I just got some honey!");
+                }
             }
         }
-
     }
-
-    void OnTriggerEnter (Collider Jars)
-    {
-        if (Jars.tag == "FullJar")
-        {
-            touchingJar = true; 
-        }
-    }
-
-    void OnTriggerExit (Collider Jars)
-    {
-        if (Jars.tag == "FullJar")
-        {
-            touchingJar = false;
-        }
-    }
-   
 }
