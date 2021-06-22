@@ -7,6 +7,7 @@ public class HoneyTimer : MonoBehaviour
     //VARS
     public float timeRemaining = 10;
     public bool timerRunning = false;
+    public KeyCode interact;
 
     //REFS
     public TextMesh countdownText;
@@ -23,6 +24,8 @@ public class HoneyTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        
         if (timerRunning)
         {
             if (timeRemaining > 0)
@@ -43,6 +46,7 @@ public class HoneyTimer : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(true);
         }
+
     }
 
     void DisplayTime(float timeToDisplay)
