@@ -61,4 +61,15 @@ public class HoneyTimer : MonoBehaviour
 
         countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+    //VARS
+
+
+    public void ChangeJar()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(false);
+        timerRunning = true;
+        timeRemaining = 10;
+    }
 }

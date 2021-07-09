@@ -10,7 +10,6 @@ public class HoneyCollect : MonoBehaviour
     public Camera playerCamera;
     public float rayRange = 5f;
     public KeyCode interact;
-    private ResetJars RJ;
 
     //DATA
     public Text dataTextJars;
@@ -21,7 +20,6 @@ public class HoneyCollect : MonoBehaviour
     void Start()
     {
         dataTextJars.text = dataAmountJars.ToString();
-        RJ = new ResetJars();
     }
 
     // Update is called once per frame
@@ -38,7 +36,7 @@ public class HoneyCollect : MonoBehaviour
                  {
                     dataAmountJars++;
                     dataTextJars.text = dataAmountJars.ToString();
-                    RJ.ChangeJar();
+                    rayHit.collider.GetComponentInParent<HoneyTimer>().ChangeJar();
                  }
             }
         }
